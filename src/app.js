@@ -8,7 +8,9 @@ const port = process.env.PORT || 8080;
 
 app.use(router);
 
-mongoose.connect('127.0.0.1:27017/test');
+let db-url = process.env.DB || '127.0.0.1:27017/test' 
+
+mongoose.connect(db-url);
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
