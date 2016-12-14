@@ -8,14 +8,15 @@ const port = process.env.PORT || 8080;
 
 app.use(router);
 
-let db-url = process.env.DB || '127.0.0.1:27017/test' 
+let dbUrl = process.env.DB || '127.0.0.1:27017/test'
 
-mongoose.connect(db-url);
+mongoose.connect(dbUrl);
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log('mongo connected');
+    console.log(dbUrl);
 });
 
 app.listen(port, () => {
